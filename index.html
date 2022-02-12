@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://kit.fontawesome.com/fff4909f75.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+        <div class="city">
+      <h1>Rio De Janeiro</h1>
+      <h6>Brazil, South America</h6>
+      </div>
+      <br />
+      <div class="weatherToday">
+
+      <div class="row today" >
+        <div class="col-4 temperatureToday">
+          <h1> 
+            <span id="temp-value">
+              20 
+            </span>
+            <span>
+              <a href="#" class="celsius">
+              °C 
+              </a>
+            </span> 
+            <span class="separator">
+              |
+            </span> 
+            <span>
+              <a href="#" class="farenheit">
+              F
+              </a>
+            </span> 
+          </h1>
+        </div>
+        <div class="col-2 emojiToday">
+          <i class="fas fa-cloud-moon"></i>
+        </div>
+        <div class="col-6 conditionsToday">
+          <p>
+            <ul>
+              <li id="current-date-time">
+                Sunday 12:28
+              </li>
+              <li>
+                Clear
+              </li>
+              <li>
+                Humidity: 80%
+              </li>
+              <li>
+                Wind: 23km/h
+              </li>
+              <li>
+                Precipitation: 50%
+              </li>
+            </ul>
+    </p>
+        </div>
+        </div>
+      </div>
+      <br>
+      <div class="forecast">
+      <div class="row weekdays" >
+      <p>
+<div class="col">Mon </div>
+<div class="col">Tue </div>
+<div class="col">Wed </div>
+<div class="col">Thu </div>
+<div class="col">Fri </div>
+<div class="col">Sat </div>
+<div class="col">Sun </div>
+      </p>
+      </div>
+      <div class="row weekdays">
+          <p>
+             <div class="col"> <i class="fa fa-solid fa-sun emoji"></i> </div> 
+             <div class="col"> <i class="fa fa-solid fa-cloud-sun emoji"></i> </div> 
+             <div class="col"> <i class="fa fa-solid fa-cloud emoji"></i> </div> 
+             <div class="col"> <i class="fa fa-solid fa-cloud-rain emoji"></i> </div> 
+             <div class="col"> <i class="fa fa-solid fa-cloud-showers-heavy emoji"></i> </div> 
+             <div class="col"> <i class="fa fa-solid fa-poo-storm emoji"></i> </div> 
+             <div class="col"> <i class="fa fa-solid fa-snowflake emoji"></i> </div> 
+          </p>
+      </div>
+      <div class="row weekdays" >
+          <p>
+              <div class="col"> 20°C </div>
+              <div class="col"> 20°C </div>
+              <div class="col"> 20°C </div>
+              <div class="col"> 20°C </div>
+              <div class="col"> 20°C </div>
+              <div class="col"> 20°C </div>
+              <div class="col"> 20°C </div>
+          </p>
+      </div>
+      </div>
+      <br>
+      <div class="searchContainer">
+        <form id="search-form">
+        <input type="search" autofocus="on" autocomplete="off" class="searchForm" id="search-input" placeholder="Search weather for another city..."/>
+        <input type="submit" value="ok" class="searchButton"/>
+        </form>
+      </div>
+    </div>
+    <script
+      src="src/script.js">
+    </script>
+  </body>
+</html>

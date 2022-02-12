@@ -1,0 +1,111 @@
+body {
+  background-image: url("/Users/tatianaziakova/Downloads/SheCodes/weather app/images/worldmapdoodle.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  padding: 8% 0;
+}
+
+.city {
+  background-color: #222831;
+  color: white;
+  text-align: center;
+  border-radius: 40px;
+  padding: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.weatherToday {
+  background-color: #222831;
+  color: white;
+  border-radius: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.temperatureToday {
+  text-align: center;
+  padding: 10% 0 10% 10%;
+}
+
+.separator {
+  color: #29a19c;
+}
+
+.emojiToday {
+  text-align: center;
+  font-size: 100px;
+  padding: 5% 0;
+  color: #a3f7bf;
+}
+
+.conditionsToday {
+  text-align: justify;
+  padding: 3% 0 3% 5%;
+  font-size: 20px;
+}
+
+.forecast {
+  background-color: #222831;
+  color: white;
+  border-radius: 40px;
+  padding: 10px 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.weekdays {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.emoji {
+  color: #29a19c;
+  font-size: 30px;
+}
+
+.searchForm {
+  min-width: 320px;
+  font-family: inherit;
+  margin: 0 auto;
+  background-color: #a3f7bf;
+  color: #222831;
+  border-radius: 40px 0 0 40px;
+  padding: 10px 20px;
+  border: outset;
+  box-shadow: 5px 5px 5px rgba (0, 0, 0, 0.3);
+  font-weight: bold;
+}
+
+.searchButton {
+  font-family: inherit;
+  margin: 0 auto;
+  background-color: #29a19c;
+  color: #222831;
+  border-radius: 0 40px 40px 0;
+  padding: 10px 20px;
+  border: outset;
+  box-shadow: 5px 5px 5px rgba (0, 0, 0, 0.3);
+  font-weight: bold;
+}
+
+.searchContainer {
+  display: block;
+  text-align: center;
+}
+
+.celsius,
+.farenheit {
+  text-decoration: none;
+  color: white;
+}
