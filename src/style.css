@@ -109,3 +109,15 @@ li {
   text-decoration: none;
   color: white;
 }
+
+.link {
+  text-align: center;
+  font-family: var(--bs-body-font-family);
+  font-weight: 300;
+  color: #222831;
+}
+
+.openSource {
+  text-decoration: none;
+  color: #29a19c;
+}
