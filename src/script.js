@@ -58,14 +58,62 @@ function changeCity(event) {
 }
 
 function changeTemp(response) {
+  console.log(response);
   let newCity = response.data.name;
-  console.log(newCity);
   let originalCity = document.querySelector("h1");
   originalCity.innerHTML = newCity;
 
   let newTemp = Math.round(response.data.main.temp);
   let originalTemp = document.querySelector("#temp-value");
   originalTemp.innerHTML = newTemp;
+
+  let newTempMin = Math.round(response.data.main.temp_min);
+  let originalTempMin = document.querySelector(`#temp-min`);
+  originalTempMin.innerHTML = newTempMin;
+
+  let newTempMax = Math.round(response.data.main.temp_max);
+  let originalTempMax = document.querySelector(`#temp-max`);
+  originalTempMax.innerHTML = newTempMax;
+
+  let newSunrise = response.data.sys.sunrise;
+  var date1 = new Date(newSunrise * 1000);
+  var hours1 = date1.getHours();
+  var minutes1 = date1.getMinutes();
+  if (hours1 < 10) {
+    hours1 = `0${hours1}`;
+  }
+  if (minutes1 < 10) {
+    minutes1 = `0${minutes1}`;
+  }
+  newSunrise = `${hours1} : ${minutes1}`;
+  let originalSunrise = document.querySelector(`#sunrise`);
+  originalSunrise.innerHTML = newSunrise;
+
+  let newSunset = response.data.sys.sunset;
+  var date2 = new Date(newSunset * 1000);
+  var hours2 = date2.getHours();
+  var minutes2 = date2.getMinutes();
+  if (hours2 < 10) {
+    hours2 = `0${hours2}`;
+  }
+  if (minutes2 < 10) {
+    minutes2 = `0${minutes2}`;
+  }
+  newSunset = `${hours2} : ${minutes2}`;
+  let originalSunset = document.querySelector(`#sunset`);
+  originalSunset.innerHTML = newSunset;
+
+  let newDescription = response.data.weather[0].description;
+  let originalDescription = document.querySelector(`#description`);
+  originalDescription.innerHTML = newDescription;
+
+  let newHumidity = response.data.main.humidity;
+  let originalHumidity = document.querySelector(`#humidity`);
+  originalHumidity.innerHTML = newHumidity;
+
+  let newWind = Math.round(response.data.wind.speed);
+  let originalWind = document.querySelector(`#wind`);
+  originalWind.innerHTML = newWind;
 
   let apiKey = "14af575613645726e379f956e6774a6e";
   let apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${newCity}&appid=${apiKey}`;

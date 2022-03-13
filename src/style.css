@@ -7,6 +7,11 @@ body {
   padding: 0;
 }
 
+ul {
+  padding: 0;
+  margin: 0 auto;
+}
+
 li {
   list-style: none;
 }
@@ -33,8 +38,19 @@ li {
   margin: 0 auto;
 }
 
+.today {
+  padding: 5%;
+  margin: 0 auto;
+}
+
 .temperatureToday {
-  padding: 5% 5% 5% 10%;
+  margin: 3% 0 0 3%;
+  padding: 0;
+}
+
+.temperatureToday h1 {
+  width: max-content;
+  margin: 0 auto;
 }
 
 .celsius,
@@ -44,7 +60,7 @@ li {
 
 #temp-value,
 #current-units {
-  font-size: 80px;
+  font-size: 60px;
 }
 
 #current-units {
@@ -54,21 +70,60 @@ li {
 .separator,
 #different-units {
   vertical-align: top;
-  font-size: smaller;
+  font-size: 20px;
   color: #29a19c;
+}
+
+.temperatureToday h6 {
+  font-size: 20px;
+  text-align: center;
+  padding: 10% 0 0 0;
+  margin: 0;
+}
+
+.temperatureToday h6 i {
+  color: #29a19c;
+}
+
+#temp-min,
+#temp-max {
+  padding: 0 8% 0 1%;
 }
 
 .emojiToday {
   text-align: center;
   font-size: 100px;
-  padding: 5% 0;
   color: #a3f7bf;
+  padding: 0;
+}
+
+.timeToday {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 20px;
+  margin-top: 2%;
+  padding: 0;
+}
+
+.timeToday i {
+  color: #29a19c;
+}
+
+#sunrise,
+#sunset {
+  margin-left: 4%;
 }
 
 .conditionsToday {
-  text-align: justify;
-  padding: 3% 3% 3% 3%;
+  text-align: center;
+  text-transform: capitalize;
   font-size: 20px;
+  margin-top: 5%;
+  padding: 0;
+}
+
+#description {
+  color: #a3f7bf;
 }
 
 .forecast {
