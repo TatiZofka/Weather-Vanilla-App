@@ -34,11 +34,27 @@ li {
 }
 
 .temperatureToday {
-  text-align: center;
-  padding: 10% 0 10% 10%;
+  padding: 5% 5% 5% 10%;
 }
 
-.separator {
+.celsius,
+.farenheit {
+  text-decoration: none;
+}
+
+#temp-value,
+#current-units {
+  font-size: 80px;
+}
+
+#current-units {
+  color: #a3f7bf;
+}
+
+.separator,
+#different-units {
+  vertical-align: top;
+  font-size: smaller;
   color: #29a19c;
 }
 
@@ -51,7 +67,7 @@ li {
 
 .conditionsToday {
   text-align: justify;
-  padding: 3% 0 3% 5%;
+  padding: 3% 3% 3% 3%;
   font-size: 20px;
 }
 
@@ -102,12 +118,6 @@ li {
 .searchContainer {
   display: block;
   text-align: center;
-}
-
-.celsius,
-.farenheit {
-  text-decoration: none;
-  color: white;
 }
 
 .link {
