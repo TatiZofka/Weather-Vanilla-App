@@ -68,12 +68,19 @@ function changeTemp(response) {
   originalTemp.innerHTML = newTemp;
 
   let newTempMin = Math.round(response.data.main.temp_min);
-  let originalTempMin = document.querySelector(`#temp-min`);
+  let originalTempMin = document.querySelector("#temp-min");
   originalTempMin.innerHTML = newTempMin;
 
   let newTempMax = Math.round(response.data.main.temp_max);
-  let originalTempMax = document.querySelector(`#temp-max`);
+  let originalTempMax = document.querySelector("#temp-max");
   originalTempMax.innerHTML = newTempMax;
+
+  let newIcon = response.data.weather[0].icon;
+  let originalIcon = document.querySelector("#icon");
+  originalIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${newIcon}@2x.png`
+  );
 
   let newSunrise = response.data.sys.sunrise;
   var date1 = new Date(newSunrise * 1000);
@@ -86,7 +93,7 @@ function changeTemp(response) {
     minutes1 = `0${minutes1}`;
   }
   newSunrise = `${hours1} : ${minutes1}`;
-  let originalSunrise = document.querySelector(`#sunrise`);
+  let originalSunrise = document.querySelector("#sunrise");
   originalSunrise.innerHTML = newSunrise;
 
   let newSunset = response.data.sys.sunset;
@@ -100,19 +107,19 @@ function changeTemp(response) {
     minutes2 = `0${minutes2}`;
   }
   newSunset = `${hours2} : ${minutes2}`;
-  let originalSunset = document.querySelector(`#sunset`);
+  let originalSunset = document.querySelector("#sunset");
   originalSunset.innerHTML = newSunset;
 
   let newDescription = response.data.weather[0].description;
-  let originalDescription = document.querySelector(`#description`);
+  let originalDescription = document.querySelector("#description");
   originalDescription.innerHTML = newDescription;
 
   let newHumidity = response.data.main.humidity;
-  let originalHumidity = document.querySelector(`#humidity`);
+  let originalHumidity = document.querySelector("#humidity");
   originalHumidity.innerHTML = newHumidity;
 
   let newWind = Math.round(response.data.wind.speed);
-  let originalWind = document.querySelector(`#wind`);
+  let originalWind = document.querySelector("#wind");
   originalWind.innerHTML = newWind;
 
   let apiKey = "14af575613645726e379f956e6774a6e";

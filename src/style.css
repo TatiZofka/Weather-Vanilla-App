@@ -17,7 +17,7 @@ li {
 }
 
 .container {
-  padding: 8% 0;
+  padding: 6% 0 0 0;
 }
 
 .city {
@@ -159,6 +159,7 @@ li {
 }
 
 .searchButton {
+  max-width: 70px;
   font-family: inherit;
   margin: 0 auto;
   background-color: #29a19c;
