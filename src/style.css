@@ -53,11 +53,6 @@ li {
   margin: 0 auto;
 }
 
-.celsius,
-.farenheit {
-  text-decoration: none;
-}
-
 #temp-value,
 #current-units {
   font-size: 60px;
@@ -65,10 +60,13 @@ li {
 
 #current-units {
   color: #a3f7bf;
+  text-decoration: none;
+  cursor: default;
 }
 
-.separator,
+#separator,
 #different-units {
+  text-decoration: none;
   vertical-align: top;
   font-size: 20px;
   color: #29a19c;
