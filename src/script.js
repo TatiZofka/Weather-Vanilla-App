@@ -153,28 +153,26 @@ function changeCountry(response) {
 function changeUnits(event) {
   event.preventDefault();
   let newUnits = document.querySelector("#different-units");
+
+  if (newUnits.textContent === "F") {
+    units = "imperial";
+  } else {
+    units = "metric";
+  }
+
   let originalUnits = document.querySelector("#current-units");
   let changedUnits = originalUnits.textContent;
   originalUnits.innerHTML = newUnits.textContent;
   newUnits.innerHTML = changedUnits;
 
-  //if ((originalUnits.textContent = "F")) {
-  //toFarenheit(event);
-  // }
+  apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(changeData);
 }
-
-//function toFarenheit(event) {
-//event.preventDefault();
-//let value = document.querySelector("#temp-value").innerText;
-//let newValue = Math.round(value * (9 / 5) + 32);
-//let oldValue = document.querySelector("#temp-value");
-//oldValue.innerHTML = newValue;
-//}
 
 let newUnits = document.querySelector("#different-units");
 newUnits.addEventListener("click", changeUnits);
 
-// global variables
+// global variables = default city search
 
 let city = "Rio De Janeiro";
 let units = "metric";
