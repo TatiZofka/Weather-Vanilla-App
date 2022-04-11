@@ -85,10 +85,7 @@ function changeData(response) {
   function changeEmoji(response) {
     let newIcon = response.data.weather[0].icon;
     let originalIcon = document.querySelector("#icon");
-    originalIcon.setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${newIcon}@2x.png`
-    );
+    originalIcon.setAttribute("src", `images/${newIcon}.svg`);
   }
 
   function changeSun(response) {
@@ -201,18 +198,19 @@ function showForecast(response) {
   let originalForecast = document.querySelector("#forecast");
   let newForecast = `<div class="row">`;
 
-  forecastData.forEach(function (forecastDay) {
-    newForecast =
-      newForecast +
-      `
+  forecastData.forEach(function (forecastDay, index) {
+    if (index > 0 && index < 8) {
+      let newIcon = forecastDay.weather[0].icon;
+
+      newForecast =
+        newForecast +
+        `
       <div class="col forecast-data">
         <div class="forecast-weekdays">${formatForecastDay(
           forecastDay.dt
         )}</div>
         <div>
-          <img src=http://openweathermap.org/img/wn/${
-            forecastDay.weather[0].icon
-          }@2x.png alt="" class="forecast-emoji" width="44"/>
+          <img src=images/${newIcon}.svg alt="" class="forecast-emoji" width="44"/>
         </div>
         <div class="forecast-numbers">
           <span class="forecast-temp-max">${Math.round(
@@ -224,6 +222,7 @@ function showForecast(response) {
         </div>
       </div>
     `;
+    }
   });
   newForecast = newForecast + `</div>`;
   originalForecast.innerHTML = newForecast;

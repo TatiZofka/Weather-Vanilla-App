@@ -39,7 +39,7 @@ li {
 }
 
 .today {
-  padding: 5%;
+  padding: 30px 40px 30px 40px;
   margin: 0 auto;
 }
 
@@ -88,11 +88,11 @@ li {
   padding: 0 8% 0 1%;
 }
 
-.emojiToday {
+#icon {
   text-align: center;
   font-size: 100px;
   color: #a3f7bf;
-  padding: 0;
+  padding: 6px 0 0 15px;
 }
 
 .timeToday {
@@ -147,7 +147,7 @@ li {
 .forecast-emoji,
 .forecast-numbers {
   margin: 0 auto;
-  padding: 0 3px 0 3px;
+  padding: 4px;
   text-align: center;
 }
 
