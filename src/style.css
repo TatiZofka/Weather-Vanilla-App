@@ -133,9 +133,16 @@ li {
   margin: 0 auto;
 }
 
-.weekdays {
+.forecast-weekdays,
+.forecast-emoji,
+.forecast-numbers {
   margin: 0 auto;
+  padding: 3px;
   text-align: center;
+}
+
+.forecast-temp-max {
+  color: #a3f7bf;
 }
 
 .emoji {

@@ -13,7 +13,10 @@
     />
     <link rel="stylesheet" href="src/style.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://kit.fontawesome.com/fff4909f75.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/fff4909f75.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="container">
@@ -21,7 +24,7 @@
         <h1>Rio De Janeiro</h1>
         <h6>Brazil, South America</h6>
       </div>
-      <br/>
+      <br />
       <div class="weatherToday">
         <div class="row today">
           <div class="col temperatureToday">
@@ -36,14 +39,14 @@
               </span>
             </h1>
             <h6>
-              <i class="fas fa-temperature-low"></i>
-              <span id="temp-min">10</span>
-              <i class="fas fa-temperature-high"></i>
-              <span id="temp-max">30</span>
+              <i class="fa-solid fa-temperature-high"></i>
+              <span id="temp-max">30°</span>
+              <i class="fa-solid fa-temperature-low"></i>
+              <span id="temp-min">10°</span>
             </h6>
           </div>
           <div class="col emojiToday">
-            <img src="" alt="" id="icon"/>
+            <img src="" alt="" id="icon" />
           </div>
           <div class="col timeToday">
             <ul>
@@ -67,69 +70,39 @@
           <div class="col conditionsToday">
             <ul>
               <li id="description">Clear</li>
-              <li>Humidity:
-                <span id="humidity">80</span> %
-              </li>
-              <li>Wind:
-                <span id="wind">23</span> km/h
-              </li>
+              <li>Humidity: <span id="humidity">80</span> %</li>
+              <li>Wind: <span id="wind">23</span> km/h</li>
             </ul>
           </div>
         </div>
       </div>
-      <br>
-      <div class="forecast">
-        <div class="row weekdays">
-          <p>
-            <div class="col">Mon</div>
-            <div class="col">Tue</div>
-            <div class="col">Wed</div>
-            <div class="col">Thu</div>
-            <div class="col">Fri</div>
-            <div class="col">Sat</div>
-            <div class="col">Sun</div>
-          </p>
-        </div>
-        <div class="row weekdays">
-          <p>
-            <div class="col"> <i class="fa fa-solid fa-sun emoji"></i> </div> 
-             <div class="col"> <i class="fa fa-solid fa-cloud-sun emoji"></i> </div> 
-             <div class="col"> <i class="fa fa-solid fa-cloud emoji"></i> </div> 
-             <div class="col"> <i class="fa fa-solid fa-cloud-rain emoji"></i> </div> 
-             <div class="col"> <i class="fa fa-solid fa-cloud-showers-heavy emoji"></i> </div> 
-             <div class="col"> <i class="fa fa-solid fa-poo-storm emoji"></i> </div> 
-             <div class="col"> <i class="fa fa-solid fa-snowflake emoji"></i> </div> 
-          </p>
-        </div>
-        <div class="row weekdays">
-          <p>
-            <div class="col">20<span class="units">°C</span></div>
-            <div class="col">20<span class="units">°C</span></div>
-            <div class="col">20<span class="units">°C</span></div>
-            <div class="col">20<span class="units">°C</span></div>
-            <div class="col">20<span class="units">°C</span></div>
-            <div class="col">20<span class="units">°C</span></div>
-            <div class="col">20<span class="units">°C</span></div>
-          </p>
-        </div>
-      </div>
+      <br />
+      <div class="forecast" id="forecast"></div>
     </div>
-    <br>
+    <br />
     <div class="searchContainer">
       <form id="search-form">
-        <input type="search" autofocus="off" autocomplete="off" class="searchForm" id="search-input" placeholder="Search weather for another city..."/>
-        <input type="submit" value="ok" class="searchButton"/>
+        <input
+          type="search"
+          autofocus="off"
+          autocomplete="off"
+          class="searchForm"
+          id="search-input"
+          placeholder="Search weather for another city..."
+        />
+        <input type="submit" value="ok" class="searchButton" />
       </form>
     </div>
-    <br>
+    <br />
     <p class="link">
-      <a href="https://github.com/TatiZofka/Weather-Vanilla-App" class="openSource">
+      <a
+        href="https://github.com/TatiZofka/Weather-Vanilla-App"
+        class="openSource"
+      >
         Open-Source code
       </a>
       by Tati
     </p>
-  <script
-    src="src/script.js">
-  </script>
+    <script src="src/script.js"></script>
   </body>
 </html>

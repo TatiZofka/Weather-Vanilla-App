@@ -73,13 +73,13 @@ function changeData(response) {
     let originalTemp = document.querySelector("#temp-value");
     originalTemp.innerHTML = newTemp;
 
-    let newTempMin = Math.round(response.data.main.temp_min);
-    let originalTempMin = document.querySelector("#temp-min");
-    originalTempMin.innerHTML = newTempMin;
-
     let newTempMax = Math.round(response.data.main.temp_max);
     let originalTempMax = document.querySelector("#temp-max");
-    originalTempMax.innerHTML = newTempMax;
+    originalTempMax.innerHTML = `${newTempMax}°`;
+
+    let newTempMin = Math.round(response.data.main.temp_min);
+    let originalTempMin = document.querySelector("#temp-min");
+    originalTempMin.innerHTML = `${newTempMin}°`;
   }
 
   function changeEmoji(response) {
@@ -140,6 +140,7 @@ function changeData(response) {
   changeEmoji(response);
   changeSun(response);
   changeConditions(response);
+  showForecast();
 }
 
 function changeCountry(response) {
@@ -181,3 +182,31 @@ let apiKey = "14af575613645726e379f956e6774a6e";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
 axios.get(apiUrl).then(changeData);
+
+// get real forecast data
+
+function showForecast() {
+  let originalForecast = document.querySelector("#forecast");
+  let newForecast = `<div class="row">`;
+
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    newForecast =
+      newForecast +
+      `
+      <div class="col">
+        <div class="forecast-weekdays">${day}</div>
+        <div class="forecast-emoji">
+          <i class="fa fa-solid fa-sun emoji">
+          </i>
+        </div>
+        <div class="forecast-numbers">
+          <span class="forecast-temp-max">30°</span>
+          <span class="forecast-temp-min">10°</span>
+        </div>
+      </div>
+    `;
+  });
+  newForecast = newForecast + `</div>`;
+  originalForecast.innerHTML = newForecast;
+}
