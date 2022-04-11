@@ -120,6 +120,10 @@ li {
   padding: 0;
 }
 
+#wind-speed-units {
+  text-transform: lowercase;
+}
+
 #description {
   color: #a3f7bf;
 }
@@ -133,11 +137,17 @@ li {
   margin: 0 auto;
 }
 
+.forecast-data {
+  margin: 0 auto;
+  padding: 10px 3px 10px 3px;
+  text-align: center;
+}
+
 .forecast-weekdays,
 .forecast-emoji,
 .forecast-numbers {
   margin: 0 auto;
-  padding: 3px;
+  padding: 0 3px 0 3px;
   text-align: center;
 }
 

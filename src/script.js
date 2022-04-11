@@ -140,7 +140,8 @@ function changeData(response) {
   changeEmoji(response);
   changeSun(response);
   changeConditions(response);
-  showForecast();
+
+  getPosition(response.data.coord);
 }
 
 function changeCountry(response) {
@@ -166,6 +167,18 @@ function changeUnits(event) {
   originalUnits.innerHTML = newUnits.textContent;
   newUnits.innerHTML = changedUnits;
 
+  function changeWindUnits() {
+    let currentUnits = document.querySelector("#current-units");
+    let WindUnits = document.querySelector("#wind-speed-units");
+    if (currentUnits.textContent === "F") {
+      WindUnits.innerHTML = "m/s";
+    } else {
+      WindUnits.innerHTML = "km/h";
+    }
+  }
+
+  changeWindUnits();
+
   apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(changeData);
 }
@@ -173,36 +186,41 @@ function changeUnits(event) {
 let newUnits = document.querySelector("#different-units");
 newUnits.addEventListener("click", changeUnits);
 
-// global variables = default city search
-
-let city = "Rio De Janeiro";
-let units = "metric";
-
-let apiKey = "14af575613645726e379f956e6774a6e";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-
-axios.get(apiUrl).then(changeData);
-
 // get real forecast data
 
-function showForecast() {
+function getPosition(coordinates) {
+  console.log(coordinates);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(showForecast);
+}
+
+function showForecast(response) {
+  let forecastData = response.data.daily;
+  console.log(forecastData);
   let originalForecast = document.querySelector("#forecast");
   let newForecast = `<div class="row">`;
 
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  days.forEach(function (day) {
+  forecastData.forEach(function (forecastDay) {
     newForecast =
       newForecast +
       `
-      <div class="col">
-        <div class="forecast-weekdays">${day}</div>
-        <div class="forecast-emoji">
-          <i class="fa fa-solid fa-sun emoji">
-          </i>
+      <div class="col forecast-data">
+        <div class="forecast-weekdays">${formatForecastDay(
+          forecastDay.dt
+        )}</div>
+        <div>
+          <img src=http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png alt="" class="forecast-emoji" width="44"/>
         </div>
         <div class="forecast-numbers">
-          <span class="forecast-temp-max">30°</span>
-          <span class="forecast-temp-min">10°</span>
+          <span class="forecast-temp-max">${Math.round(
+            forecastDay.temp.max
+          )}°</span>
+          <span class="forecast-temp-min">${Math.round(
+            forecastDay.temp.min
+          )}°</span>
         </div>
       </div>
     `;
@@ -210,3 +228,22 @@ function showForecast() {
   newForecast = newForecast + `</div>`;
   originalForecast.innerHTML = newForecast;
 }
+
+function formatForecastDay(date) {
+  let formattedDay = new Date(date * 1000);
+  let day = formattedDay.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+// global variables = default city search
+
+let city = "Rio De Janeiro";
+let units = "metric";
+let originalWindUnits = document.querySelector("#wind-speed-units");
+originalWindUnits.innerHTML = "km/h";
+
+let apiKey = "14af575613645726e379f956e6774a6e";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+
+axios.get(apiUrl).then(changeData);
