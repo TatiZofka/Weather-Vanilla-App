@@ -1,6 +1,7 @@
 // display current date and time
 
 let rightNow = new Date();
+console.log(rightNow.toLocaleString());
 
 let weekdays = [
   "Sunday",
@@ -73,13 +74,15 @@ function changeData(response) {
     let originalTemp = document.querySelector("#temp-value");
     originalTemp.innerHTML = newTemp;
 
-    let newTempMax = Math.round(response.data.main.temp_max);
-    let originalTempMax = document.querySelector("#temp-max");
-    originalTempMax.innerHTML = `${newTempMax}°`;
+    // use this piece of code if you want to show today's forecast by CurrentWeather API call - based on current values
 
-    let newTempMin = Math.round(response.data.main.temp_min);
-    let originalTempMin = document.querySelector("#temp-min");
-    originalTempMin.innerHTML = `${newTempMin}°`;
+    //let newTempMax = Math.round(response.data.main.temp_max);
+    //let originalTempMax = document.querySelector("#temp-max");
+    //originalTempMax.innerHTML = `${newTempMax}°`;
+
+    //let newTempMin = Math.round(response.data.main.temp_min);
+    //let originalTempMin = document.querySelector("#temp-min");
+    //originalTempMin.innerHTML = `${newTempMin}°`;
   }
 
   function changeEmoji(response) {
@@ -226,6 +229,16 @@ function showForecast(response) {
   });
   newForecast = newForecast + `</div>`;
   originalForecast.innerHTML = newForecast;
+
+  // use this piece of code if you want to show today's forecast by OneCall API call - based on whole day forecast values
+
+  let newTempMax = Math.round(forecastData[0].temp.max);
+  let originalTempMax = document.querySelector("#temp-max");
+  originalTempMax.innerHTML = `${newTempMax}°`;
+
+  let newTempMin = Math.round(forecastData[0].temp.min);
+  let originalTempMin = document.querySelector("#temp-min");
+  originalTempMin.innerHTML = `${newTempMin}°`;
 }
 
 function formatForecastDay(date) {
