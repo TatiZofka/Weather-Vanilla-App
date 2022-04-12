@@ -88,7 +88,10 @@ function changeData(response) {
   function changeEmoji(response) {
     let newIcon = response.data.weather[0].icon;
     let originalIcon = document.querySelector("#icon");
-    originalIcon.setAttribute("src", `images/${newIcon}.svg`);
+    originalIcon.setAttribute(
+      "src",
+      `images/emoji today colored/${newIcon}.svg`
+    );
   }
 
   function changeSun(response) {
@@ -213,7 +216,7 @@ function showForecast(response) {
           forecastDay.dt
         )}</div>
         <div>
-          <img src=images/${newIcon}.svg alt="" class="forecast-emoji" width="44"/>
+          <img src="images/emoji forecast colored/${newIcon}.svg" alt="" class="forecast-emoji" id="forecast-emoji" width="44"/>
         </div>
         <div class="forecast-numbers">
           <span class="forecast-temp-max">${Math.round(
